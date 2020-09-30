@@ -1,0 +1,25 @@
+<%= render '/header'%>
+	<p id="notice">
+    	<%=  notice %>
+    </p>
+<div class='col-xs-3'>
+	  <div class='col-xs-9'>
+	<h2>New game</h2>
+		<%= form_for(@game, url: '/games' ,class:"new_game") do |f|%>
+    		<% @game.errors.full_messages.each do |message| %>
+     			<%= message %>
+    		<% end %>
+    	<div class="field row">
+      		<h4>Title</h4>
+        	<%= f.text_field :title,class:"col-xs-12 game_title"%>
+    	</div>
+    	<div class="field row">
+      		<h4>Opinion</h4>
+      		<%= f.text_area :remarks ,class:"col-xs-12 game_remarks"%>
+    	</div>
+    <br>
+    <div class="actions row">
+      <%= f.submit 'Create Game' ,class:"btn btn-primary col-xs-12"%>
+    </div>
+  <% end %>
+</div>

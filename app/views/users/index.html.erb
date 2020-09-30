@@ -1,0 +1,57 @@
+<%= render '/header' %>
+
+  	<div class='body'>
+      <div class='container'>
+
+        <p id="notice"></p>
+
+
+      	<div class='row'>
+  <!-- ここから -->
+  <%= render '/left_current' , game: @game %>
+<!-- ここまで -->
+  <div class='col-xs-9'>
+    <h2>Users</h2>
+
+    <table class='table'>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+       <% @users.each do |user| %>
+      <tr>
+        <!-- <td><img class="attachment user profile_image" src="/attachments/2cd480ee5eab85587b264f8ca5d4c6ad462b383e/store/fill/50/50/2d31292f94b2a5cab943f5d35a945299c2314f9799a4ffc7cb02ebf6763d/profile_image" alt="Profile image" /></td> -->
+        <!-- <td><%= user.profile_image_id %></td> -->
+        <% if user.profile_image_id.nil? %>
+        <td><%= image_tag "noimage_person_c.png", size:"30x30"%></td>
+        <% else %>
+        <td><%= attachment_image_tag user, :profile_image ,size:'30x30' %></td>
+        <% end %>
+        <td><%= user.name %></td>
+        <td><%=link_to "Show", "/users/#{user.id}" , class:"user_#{user.id}"%></td>
+      </tr>
+       <% end %>
+
+  </tbody>
+</table>
+
+  </div>
+
+</div>
+      </div>
+    </div>
+
+    <footer>
+  <div class='container'>
+  	<div class='row'>
+    	<div class='col-xs-3 col-xs-offset-9'>
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>

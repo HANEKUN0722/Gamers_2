@@ -1,0 +1,64 @@
+ <%= render '/header' %>
+  	<div class='body'>
+      <div class='container'>
+
+      <p id="notice">
+      <%=  notice %>
+      </p>
+
+
+      	<div class='row'>
+  <!-- ここから -->
+  <%= render '/left' ,user: @user, users: @users, game: @game%>
+<!-- ここまで -->
+  <div class='col-xs-9'>
+    <h2>MY Games</h2>
+
+    <table class='table table-hover table-inverse'>
+  <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th>Opinion</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+  <% @games.each do |game| %>
+    <tr>
+      <% if game.user.profile_image_id.nil? %>
+      <td>
+        <%= link_to user_path(game.user) do %>
+        <%= image_tag "noimage_person_c.png" ,:size => "30x30" %>
+        <% end %>
+      </td>
+
+      <% else %>
+      <td>
+        <%= link_to user_path(game.user) do %>
+        <%= attachment_image_tag game.user , :profile_image, :size => '30x30' %>
+        <% end %>
+      </td>
+      <% end %>
+      <td><%= link_to game.title , game_path(game), class:"game_#{game.id}" %></td>
+      <td><%= game.remarks %></td>
+    </tr>
+  <% end %>
+
+  </tbody>
+</table>
+  </div>
+</div>
+      </div>
+    </div>
+
+    <footer>
+  <div class='container'>
+  	<div class='row'>
+    	<div class='col-xs-3 col-xs-offset-9'>
+    		<p>CopyRight Infratop.inc</p>
+    	</div>
+    </div>
+  </div>
+</footer>
