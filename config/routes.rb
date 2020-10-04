@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   get "home/about"
   devise_for :users
   resources :users
-  resources :games
-  get 'reviews/index'
-  get 'reviews/show'
-  get 'reviews/new'
-  get 'reviews/edit'
+  resources :games do
+    resources :reviews, only: [:create, :destroy]
+  end
   get 'mails/index'
   get 'mails/show'
   get 'mails/new'

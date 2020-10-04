@@ -1,0 +1,23 @@
+<div class="comment">
+
+	<% @reviews.each do |review| %>
+		<table class="c-table">
+			<tr>
+				
+				<td><%= link_to review.user.name, user_path(review.user.id) %></td>
+				<td><%= review.comment %></td>
+			<% if review.user === current_user %>
+				<td><%= link_to "Destroy", game_review_path(review.game, review), method: :delete, "data-confirm" => "本当に消去しますか？" %></td>
+			<% end %>
+			</tr>
+		</table>
+	<% end %>
+
+	<div class="comment-box">
+		<%= form_for [@game, @review] do |f| %>
+			<%= f.text_area :comment, size:"70x5", :placeholder => "Please comment." %>
+			<p><%= f.submit "Done", :class => "button-2" %></p>
+		<% end %>
+	</div>
+
+</div>

@@ -1,5 +1,18 @@
 class GamesController < ApplicationController
 
+  def index
+    @games = Game.all
+    @game = Game.new
+    @user = User.find(current_user.id)
+  end
+
+  def show
+    @game = Game.find(params[:id])
+    @user = User.find(current_user.id)
+    @review = Review.new
+    @reviews = @game.reviews
+  end
+
   def new
     @game = Game.new
   end
@@ -13,33 +26,13 @@ class GamesController < ApplicationController
       redirect_to game_path(@game.id) , notice: 'game was successfully created'
     else
       @games =Game.all
-      render "index", notice:' error'
-    end
-  end
-
-  def index
-    if user_signed_in?
-    @games = Game.all
-    @game = Game.new
-    else
-      redirect_to new_user_session_path
-    end
-  end
-
-  def show
-    if user_signed_in?
-    @games = Game.find(params[:id])
-    @game = Game.new
-
-    else
-      redirect_to new_user_session_path
+      @user = current_user.id
+      render action: :new
     end
   end
 
   def edit
-
     @game = Game.find(params[:id])
-
       if user_signed_in? == true
         if current_user.id != @game.user_id.to_i
           redirect_to games_path
@@ -47,7 +40,7 @@ class GamesController < ApplicationController
       else
         redirect_to new_user_session_path
       end
-end
+  end
 
 
   def update
@@ -70,7 +63,7 @@ end
   private
   def game_params
     params.require(:game).permit(:title, :remarks,:user_id)
-end
+  end
   def user_pramas
     params.require(:user).permit(:name, :introduction,:profile_image)
   end

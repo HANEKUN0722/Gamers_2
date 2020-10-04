@@ -10,12 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_28_140156) do
+ActiveRecord::Schema.define(version: 2020_10_03_130357) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
+    t.date "release_date"
+    t.integer "price"
+    t.string "image_id"
     t.text "remarks"
     t.string "user_id"
+    t.string "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "comment"
+    t.string "user_id"
+    t.string "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

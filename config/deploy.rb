@@ -4,7 +4,7 @@ lock "~> 3.14.1"
 set :application, "Gamers"
 set :repo_url, "git@github.com:HANEKUN0722/Gamers_2.git"
 
-set :deploy_to, "/home/ec2-user/Gamers"
+set :deploy_to, "/home/ec2-user/Gamers_2"
 set :rbenv_ruby, '2.5.7'
 set :linked_files, %w{config/master.key .env}
 append :linked_dirs, "log", "public", "tmp"

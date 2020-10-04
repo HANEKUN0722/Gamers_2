@@ -9,13 +9,12 @@ class UsersController < ApplicationController
     end
   end
 
-
   def show
     if user_signed_in?
 
     @user = User.find(params[:id])
     @users =User.all
-    @games = @user.game
+    @games = @user.games
     @game = Game.new
 
     else

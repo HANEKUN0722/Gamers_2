@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  has_many :game, dependent: :destroy
+  has_many :games, dependent: :destroy
+  has_many :reviews, dependent: :destroy
   attachment :profile_image
 
   validates :name, length: { minimum: 2, maximum: 20 }, presence: { message: 'error,enter your name 2 to 20 characters' }
