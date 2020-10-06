@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_03_130357) do
+ActiveRecord::Schema.define(version: 2020_10_05_171550) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 2020_10_03_130357) do
     t.text "remarks"
     t.string "user_id"
     t.string "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "follower_id"
+    t.integer "following_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

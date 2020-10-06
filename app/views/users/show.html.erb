@@ -8,9 +8,11 @@
 
 
       	<div class='row'>
-  <!-- ここから -->
+
   <%= render '/left' ,user: @user, users: @users, game: @game%>
-<!-- ここまで -->
+        <%= render 'follow_form' %>
+　　　 <%= render 'stats' %>
+
   <div class='col-xs-9'>
     <h2>MY Games</h2>
 
@@ -41,6 +43,9 @@
         <% end %>
       </td>
       <% end %>
+
+
+
       <td><%= link_to game.title , game_path(game), class:"game_#{game.id}" %></td>
       <td><%= game.remarks %></td>
     </tr>
