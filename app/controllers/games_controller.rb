@@ -4,6 +4,8 @@ class GamesController < ApplicationController
     @games = Game.all
     @game = Game.new
     @user = User.find(current_user.id)
+    #検索機能
+    @games = Game.search(params[:search])
   end
 
   def show
