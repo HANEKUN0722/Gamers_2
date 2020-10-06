@@ -3,13 +3,11 @@ Rails.application.routes.draw do
   get "home/about"
   devise_for :users
   resources :users
+  resources :messages, :only => [:create]
+  resources :rooms, :only => [:create, :show, :index]
   resources :games do
     resources :reviews, only: [:create, :destroy]
   end
-  get 'mails/index'
-  get 'mails/show'
-  get 'mails/new'
-  get 'mails/edit'
   resources :relationships, only: [:create, :destroy]
   resources :users do
     member do
