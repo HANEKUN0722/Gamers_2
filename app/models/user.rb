@@ -17,6 +17,9 @@ class User < ApplicationRecord
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
 
+  # お気に入り関連
+  has_many :favorites, dependent: :destroy
+
   attachment :profile_image
 
   validates :name, length: { minimum: 2, maximum: 20 }, presence: { message: 'error,enter your name 2 to 20 characters' }

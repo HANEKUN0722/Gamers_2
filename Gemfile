@@ -72,6 +72,8 @@ gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
 gem 'bootstrap-sass', '~> 3.3.7'
 
+gem 'haml-rails'
+
 gem 'jquery-rails'
 
 gem 'dotenv-rails'

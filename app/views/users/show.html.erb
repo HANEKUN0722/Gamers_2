@@ -27,7 +27,14 @@
   <% end %>
 <% end %>
 
+<% if @favorite_list.present? %>
+  <% @favorite_list.each do |game| %>
+    <%= game.title %>
+  <% end %>
+<% end %>
+
   <div class='col-xs-9'>
+
     <h2>MY Games</h2>
 
     <table class='table table-hover table-inverse'>

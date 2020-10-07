@@ -1,0 +1,11 @@
+#favorite{ id: @game.id }
+  - if !Favorite.exists?(user: current_user, game_id: @game.id)   # お気に入り未登録の時
+    = link_to game_favorites_path(@game), method: :post, remote: true, class: "favorite-btn favorite-game" do
+      .i.far.fa-thumbs-up
+        %span いいね！
+        = @game.favorites.length   # お気に入り登録数
+  - else    # お気に入り登録済みの時
+    = link_to game_favorites_path(@game), method: :delete, remote: true, class: "favorite-btn favorite-delete" do
+      .i.far.fa-thumbs-up
+        %span いいね！
+        = @game.favorites.length   # お気に入り登録数
