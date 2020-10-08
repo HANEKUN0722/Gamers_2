@@ -55,8 +55,6 @@ class GamesController < ApplicationController
   end
 
   def destroy
-       # dbから削除する命令
-    # リダイレクトする命令
     game = Game.find(params[:id]) #データ(レコード)を1件取得
     game.destroy #データ（レコード）を削除
     redirect_to games_path #List一覧画面へリダイレクト
