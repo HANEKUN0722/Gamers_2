@@ -35,14 +35,14 @@
   list-style: none;
 }
 
-.navbar-left span{
-  font-size: 20px;
-  padding-top: 10px;
+.navbar-left {
+  font-size: 25px;
+  padding-top: 5px;
   color:white
 }
 
 .navbar-nav > .glyphicon {
-  color: #9d9d9d;
+  color: #FFFFFF;
   padding:10px 15px;
   line-height: 20px;
 }
@@ -75,4 +75,14 @@
 
 .edit_user > .user_edit_field{
   margin-bottom:10px;
+}
+
+// formの
+.form-search{
+  border:none;
+  border-radius:10px;
+  box-shadow: none;
+  padding: 2px 8px;
+  display:inline-flex;
+
 }
