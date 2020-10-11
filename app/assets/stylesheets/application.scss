@@ -152,13 +152,6 @@
   box-sizing: border-box;
 }
 
-.about{
-     text-align: center;
-         width: 100%;
-    position: absolute;
-    top:40vh;
-}
-
 .body {
   margin-top: 51px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -166,6 +159,11 @@
   background: #6441A5;
   height:100vh;
 }
+
+.brack{
+  color:#000000;
+  }
+
 
 .nav {
   margin-bottom: 0;
@@ -217,5 +215,18 @@
   box-shadow: none;
   padding: 2px 8px;
   display:inline-flex;
+}
 
+// aboutのデザイン
+.about{
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top:40vh;
+}
+
+// Signupのデザイン
+.signup{
+    text-align: center;
+    width: 100%;
 }
