@@ -15,7 +15,6 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-// ここからTOP画面
 @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
 .context {
@@ -30,6 +29,7 @@
     font-size: 50px;
 }
 
+// ここから背景の動き
 .area{
     background: #6441A5;
     width: 100%;
@@ -144,7 +144,7 @@
         border-radius: 50%;
     }
 }
-// ここまでTOP画面
+// ここまで
 
 *{
   -webkit-box-sizing: border-box;
@@ -152,9 +152,19 @@
   box-sizing: border-box;
 }
 
+.about{
+     text-align: center;
+         width: 100%;
+    position: absolute;
+    top:40vh;
+}
+
 .body {
   margin-top: 51px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #FFFFFF;
+  background: #6441A5;
+  height:100vh;
 }
 
 .nav {
@@ -193,6 +203,7 @@
 .edit_user > .user_edit_field{
   margin-bottom:10px;
 }
+
 
 // 通知の色
 #notice {

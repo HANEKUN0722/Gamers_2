@@ -16,3 +16,10 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require_tree .
+
+$(document).on('turbolinks:load', function(){
+  $('.slick').slick({
+    autoplay:true,  ←自動再生
+    dots:true,      ←ドットの描写
+  });
+});
