@@ -1,11 +1,10 @@
 <%= render '/header' %>
 <div class="body">
   <div class="container">
-          <div class="signup">
-<h2>パスワードをお忘れですか？</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="signup">
+		<h2>パスワードをお忘れですか？</h2>
+		<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+<%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
     <%= f.label :登録メールアドレス %><br />
