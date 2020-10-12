@@ -1,41 +1,50 @@
  <%= render '/header' %>
   	<div class='body'>
       <div class='container'>
+        <p id="notice">
+        <%=  notice %>
+        </p>
 
-      <p id="notice">
-      <%=  notice %>
-      </p>
+      <div class='row'>
+        <% if @user.id == current_user.id %>
+          <%= render '/left_current' ,user: @user, users: @users, game: @game%>
+        <% else %>
+          <%= render '/left' ,user: @user, users: @users, game: @game%>
+             <% if @isRoom == true %>
+                <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
+              <% else %>
+                <%= form_for @room do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, :value=> @user.id %>
+                  <% end %>
+                  <%= f.submit "チャットを始める" %>
+                <% end %>
+              <% end %>
+        <% end %>
+          <div class='col-xs-9'>
+        <h2>いいねしたゲーム</h2>
+  <table class='table table-hover table-inverse'>
+ <thead>
+    <tr>
+      <th></th>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+<tbody>
 
-
-      	<div class='row'>
-
-  <%= render '/left' ,user: @user, users: @users, game: @game%>
-        <%= render 'follow_form' %>
-　　　 <%= render 'stats' %>
-<% if @user.id == current_user.id %>
-
-<% else %>
-  <% if @isRoom == true %>
-    <p><a href="/rooms/<%= @roomId %>">チャットへ</a>
-  <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, :value=> @user.id %>
-      <% end %>
-      <%= f.submit "チャットを始める" %>
-    <% end %>
-  <% end %>
-<% end %>
-
-<% if @favorite_list.present? %>
+ <td>
+  <% if @favorite_list.present? %>
   <% @favorite_list.each do |game| %>
-    <%= game.title %>
+    <%= link_to game.title , game_path(game), class:"game_#{game.id}"%>
   <% end %>
 <% end %>
-
+</td>
+  </tbody>
+</table>
   <div class='col-xs-9'>
 
-    <h2>MY Games</h2>
+    <h2>登録したゲーム</h2>
 
     <table class='table table-hover table-inverse'>
   <thead>
@@ -78,13 +87,3 @@
 </div>
       </div>
     </div>
-
-    <footer>
-  <div class='container'>
-  	<div class='row'>
-    	<div class='col-xs-3 col-xs-offset-9'>
-    		<p>CopyRight Infratop.inc</p>
-    	</div>
-    </div>
-  </div>
-</footer>

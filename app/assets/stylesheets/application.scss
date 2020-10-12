@@ -160,10 +160,15 @@
   height:100vh;
 }
 
+// 文字を黒色に
 .brack{
   color:#000000;
   }
 
+// 文字を紫に
+.purple{
+  color: #6441A5;
+}
 
 .nav {
   margin-bottom: 0;
@@ -223,10 +228,22 @@
     width: 100%;
     position: absolute;
     top:40vh;
+    color: #FFFFFF;
 }
 
 // Signupのデザイン
 .signup{
     text-align: center;
     width: 100%;
+}
+
+.link {
+  display: inline-block;
+  padding: 0.1em 0.3em;
+  transition: all .3s;
+  color: #fff;
+}
+.link:hover {
+  color: #fff;
+  background-color: #8a2be2;
 }
