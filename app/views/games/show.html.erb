@@ -9,36 +9,30 @@
 
         <div class='row'>
   <div class='col-xs-9'>
-		<h2>ゲーム詳細</h2>
+		<h2><strong>ゲーム詳細</strong></h2>
 		<table class='table'>
 
         <td>
-        <%= attachment_image_tag @game,:image,size:'50x50',fallback: "noimage_person_c.png"%>  </td>
-        <td><%= link_to @game.title, game_path(@game) %></td>
+        <%= attachment_image_tag @game,:image,size:'300x300',fallback: "noimage_person_c.png"%>
+      </td>
+         </tr>
+        <td><%= @game.title%></td>
+         <td><%= render "favorites/favorite", game: @game %></td>
+        </tr>
         <td><%= @game.remarks %></td>
 
-        <% if @game.user_id.to_i == current_user.id %>
-        <td><%= link_to "Edit", edit_game_path(@game.id) ,class:"btn-sm btn-success"%></td>
-        <td><%= link_to "Destroy",  "/games/#{@game.id}" ,method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn-sm btn-danger"%></td>
-        <% end %>
-
-          <td><p><%= render "favorites/favorite", game: @game %></p></td>
       </tr>
-
+     <td> <%= render "reviews/review", game: @game %></td>
+     </tr>
+      <% if @game.user_id.to_i == current_user.id %>
+        <td><%= link_to "編集", edit_game_path(@game.id) ,class:"btn-sm btn-success"%>
+          <%= link_to "削除",  "/games/#{@game.id}" ,method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn-sm btn-danger"%></td>
+        <% end %>
     </table>
 
   </div>
+
 </div>
-      <p><%= render "reviews/review", game: @game %></p>
+
       </div>
     </div>
-
-    <footer>
-  <div class='container'>
-  	<div class='row'>
-    	<div class='col-xs-3 col-xs-offset-9'>
-    		<p>CopyRight Infratop.inc</p>
-    	</div>
-    </div>
-  </div>
-</footer>

@@ -170,6 +170,8 @@
   color: #6441A5;
 }
 
+
+//ヘッダーののデザイン
 .nav {
   margin-bottom: 0;
   padding-left: 0;
@@ -188,6 +190,12 @@
   line-height: 20px;
 }
 
+
+// ボタンのデザイン
+.btn-default{
+  margin-bottom:10px;
+}
+
 .btn-success{
   margin-bottom:10px;
 }
@@ -197,7 +205,7 @@
 }
 
 
-
+// ユーザー編集画面のデザイン
 .edit_user > .field{
   display:flex;
   font-size:14px;
@@ -237,15 +245,24 @@
     width: 100%;
 }
 
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #8a2be2;
+  }
 
 //linkのデザイン
 .link {
-  display: inline-block;
-  padding: 0.1em 0.3em;
-  transition: all .3s;
   color: #fff;
 }
 .link:hover {
   color: #fff;
   background-color: #8a2be2;
+}
+
+// linkのデザイン（黒文字版）
+.link-black {
+  color: #000000;
+}
+.link-black:hover {
+  color: #000000;
+  background-color: #dcdcdc;
 }

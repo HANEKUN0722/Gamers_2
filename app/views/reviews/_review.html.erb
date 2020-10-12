@@ -2,10 +2,11 @@
 	<% @reviews.each do |review| %>
 		<table class="c-table">
 			<tr>
-				<td><%= link_to review.user.name, user_path(review.user.id) %></td>
+				<td><strong><%= link_to review.user.name, user_path(review.user.id) , class:"link"%></strong></td>
+				</tr>
 				<td><%= review.comment %></td>
 			<% if review.user === current_user %>
-				<td><%= link_to "Destroy", game_review_path(review.game, review), method: :delete, "data-confirm" => "本当に消去しますか？" %></td>
+				<td><%= link_to "Destroy", game_review_path(review.game, review), method: :delete, "data-confirm" => "本当に消去しますか？" ,class:"btn-sm btn-danger"%></td>
 			<% end %>
 			</tr>
 		</table>
