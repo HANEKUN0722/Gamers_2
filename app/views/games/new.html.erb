@@ -1,21 +1,28 @@
 <%= render '/header'%>
+    <div class='body'>
+      <div class='container'>
 	<p id="notice">
     	<%=  notice %>
     </p>
-<div class='col-xs-3'>
-	  <div class='col-xs-9'>
-	<h2>New game</h2>
+
+	  <div class='col-xs-6'>
+	<h2>ゲーム登録</h2>
 		<%= form_for(@game, url: '/games' ,class:"new_game") do |f|%>
     		<% @game.errors.full_messages.each do |message| %>
      			<%= message %>
     		<% end %>
+          <div class="field row">
+            <h4>プロフィール画像</h4>
+            <%= attachment_image_tag @game, :image, :fill, 60, 60 %>
+            <%= f.attachment_field :image %>
+      </div>
     	<div class="field row">
       		<h4>Title</h4>
-        	<%= f.text_field :title,class:"col-xs-12 game_title"%>
+        	<%= f.text_field :title,class:"col-xs-12 black"%>
     	</div>
     	<div class="field row">
       		<h4>Opinion</h4>
-      		<%= f.text_area :remarks ,class:"col-xs-12 game_remarks"%>
+      		<%= f.text_area :remarks ,class:"col-xs-12 black"%>
     	</div>
     <br>
     <div class="actions row">

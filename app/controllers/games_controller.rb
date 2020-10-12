@@ -20,10 +20,8 @@ class GamesController < ApplicationController
   end
 
   def create
-    # ストロングパラメーターを使用
     @game = Game.new(game_params)
     @game.user_id = current_user.id
-    # DBへ保存する
     if @game.save
       redirect_to game_path(@game.id) , notice: 'game was successfully created'
     else
@@ -62,7 +60,7 @@ class GamesController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:title, :remarks,:user_id)
+    params.require(:game).permit(:title, :remarks,:user_id,:image)
   end
   def user_pramas
     params.require(:user).permit(:name, :introduction,:profile_image)

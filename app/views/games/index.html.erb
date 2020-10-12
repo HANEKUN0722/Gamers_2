@@ -1,20 +1,19 @@
     <%= render '/header'%>
     <p id="notice">
-    <%=  notice %> 
+    <%=  notice %>
     </p>
   	<div class='body'>
       <div class='container'>
 
-        <p id="notice"></p>
 <div class='row'>
   <div class='col-xs-9'>
-    <h2>Games</h2>
+    <h2>ゲーム一覧</h2>
     <table class='table table-hover table-inverse'>
   <thead>
     <tr>
       <th></th>
-      <th>Title</th>
-      <th>Opinion</th>
+      <th>タイトル</th>
+      <th>詳細</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -22,20 +21,13 @@
   <tbody>
     <% @games.each do |game| %>
     <tr>
-      <% if game.user.profile_image_id.nil? %>
+
       <td>
-      <%= link_to user_path(game.user) do %>
-      <%= image_tag "noimage_person_c.png" ,:size => '30x30'%>
-      <% end %>
+
+      <%= attachment_image_tag game,:image,size:'50x50',fallback: "noimage_person_c.png"%>
       </td>
 
-      <% else %>
-      <td>
-      <%= link_to user_path(game.user) do %>
-      <%= attachment_image_tag game.user , :profile_image, :size => '30x30' %>
-      <% end %>
-      </td>
-      <% end %>
+
       <td><%= link_to game.title, game_path(game.id) %></td>
       <td><%= game.remarks %></td>
 
@@ -48,13 +40,3 @@
 
       </div>
     </div>
-
-    <footer>
-  <div class='container'>
-  	<div class='row'>
-    	<div class='col-xs-3 col-xs-offset-9'>
-    		<p>CopyRight Infratop.inc</p>
-    	</div>
-    </div>
-  </div>
-</footer>

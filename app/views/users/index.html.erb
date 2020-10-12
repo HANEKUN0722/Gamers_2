@@ -23,13 +23,7 @@
   <tbody>
        <% @users.each do |user| %>
       <tr>
-        <!-- <td><img class="attachment user profile_image" src="/attachments/2cd480ee5eab85587b264f8ca5d4c6ad462b383e/store/fill/50/50/2d31292f94b2a5cab943f5d35a945299c2314f9799a4ffc7cb02ebf6763d/profile_image" alt="Profile image" /></td> -->
-        <!-- <td><%= user.profile_image_id %></td> -->
-        <% if user.profile_image_id.nil? %>
-        <td><%= image_tag "noimage_person_c.png", size:"50x50"%></td>
-        <% else %>
-        <td><%= attachment_image_tag user, :profile_image ,size:'50x50' %></td>
-        <% end %>
+        <td><%= attachment_image_tag user, :profile_image ,size:'50x50' ,fallback: "noimage_person_c.png"%></td>
         <td><%= user.name %></td>
         <td><%=link_to "詳細", "/users/#{user.id}" , class:"user_#{user.id}"%></td>
       </tr>

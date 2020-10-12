@@ -9,28 +9,11 @@
 
         <div class='row'>
   <div class='col-xs-9'>
-		<h2>game detail</h2>
-          <p><%= render "favorites/favorite", game: @game %></p>
+		<h2>ゲーム詳細</h2>
 		<table class='table'>
-		  <tr>
-        <% if @game.user.profile_image_id.nil? %>
-        <td>
-        <%= link_to user_path(@game.user) do %>
-        <%= image_tag "noimage_person_c.png", :size => "30x30"%>
-        <br>
-        <%= @game.user.name %>
-        <% end %>
-        </td>
 
-        <% else %>
         <td>
-        <%= link_to user_path(@game.user) do %>
-        <%= attachment_image_tag @game.user, :profile_image, :size => '30x30'%>
-        <br>
-        <%= @game.user.name %>
-        <% end %>
-        </td>
-        <% end %>
+        <%= attachment_image_tag @game,:image,size:'50x50',fallback: "noimage_person_c.png"%>  </td>
         <td><%= link_to @game.title, game_path(@game) %></td>
         <td><%= @game.remarks %></td>
 
@@ -39,7 +22,9 @@
         <td><%= link_to "Destroy",  "/games/#{@game.id}" ,method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn-sm btn-danger"%></td>
         <% end %>
 
+          <td><p><%= render "favorites/favorite", game: @game %></p></td>
       </tr>
+
     </table>
 
   </div>

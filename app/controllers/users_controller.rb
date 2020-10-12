@@ -78,7 +78,7 @@ class UsersController < ApplicationController
 
   private
   def game_params
-    params.require(:game).permit(:title, :remarks)
+    params.require(:game).permit(:title, :remarks,:image)
   end
   def user_params
     params.require(:user).permit(:name, :introduction, :profile_image)
