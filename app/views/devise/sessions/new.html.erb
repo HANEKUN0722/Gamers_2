@@ -13,12 +13,12 @@
 <!-- 代わりにnameフォームを追加 -->
   <div class="field">
     <%= f.label :ユーザー名 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'brack'%>
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", class: 'black'%>
   </div>
 <!-- パスワード入力フォーム -->
   <div class="field">
     <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: 'brack'%>
+    <%= f.password_field :password, autocomplete: "current-password", class: 'black'%>
   </div>
 <!-- 記憶に関するチェックボックス -->
   <% if devise_mapping.rememberable? %>
@@ -29,7 +29,7 @@
   <% end %>
 <!-- ログインボタン -->
   <div class="actions">
-    <%= f.submit "Log in" ,class:"btn btn-default" %>
+    <%= f.submit "ログイン" ,class:"btn btn-default" %>
   </div>
 <% end %>
 
