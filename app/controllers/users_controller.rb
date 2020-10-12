@@ -15,7 +15,7 @@ class UsersController < ApplicationController
     @games = @user.games
     @game = Game.new
     #お気に入り機能
-    favorites = Favorite.where(user_id: current_user.id).pluck(:game_id)  # ログイン中のユーザーのお気に入りのgame_idカラムを取得
+    favorites = Favorite.where(user_id: @user).pluck(:game_id)  # ユーザーのお気に入りのgame_idカラムを取得
     @favorite_list = Game.find(favorites)     # gamesテーブルから、お気に入り登録済みのレコードを取得
     #DM機能
     @currentUserEntry=Entry.where(user_id: current_user.id)

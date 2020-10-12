@@ -190,21 +190,6 @@
   line-height: 20px;
 }
 
-
-// ボタンのデザイン
-.btn-default{
-  margin-bottom:10px;
-}
-
-.btn-success{
-  margin-bottom:10px;
-}
-
-.btn-primary{
-  margin-bottom: 10px;
-}
-
-
 // ユーザー編集画面のデザイン
 .edit_user > .field{
   display:flex;
@@ -226,7 +211,7 @@
   border:none;
   border-radius:10px;
   box-shadow: none;
-  padding: 2px 8px;
+  padding: 8px 30px 8px 10px;
   display:inline-flex;
 }
 

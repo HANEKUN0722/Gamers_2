@@ -15,6 +15,19 @@
 </table>
 <%= render 'users/stats'%>
 <%= render 'users/follow_form' %>
+             <% if @isRoom == true %>
+                <div class="btn btn-default">
+                  <a href="/rooms/<%= @roomId %>">チャットへ</a>
+                </div>
+              <% else %>
+                <%= form_for @room do |f| %>
+                  <%= fields_for @entry do |e| %>
+                    <%= e.hidden_field :user_id, :value=> @user.id %>
+                  <% end %>
+                  <%= f.submit "チャットを始める",class:"btn btn-default " %>
+                <% end %>
+              <% end %>
+
 <div class='row'>
 <div class='col-xs-12'>
 </div></div></div>

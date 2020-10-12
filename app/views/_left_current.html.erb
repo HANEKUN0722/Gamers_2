@@ -2,7 +2,7 @@
   <h2>マイページ</h2>
 <table class='table'>
   <tr>
-    <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, class: "pull-left profile-thumb", fallback: "noimage_person_c.png",size:'100x100'%>
+    <%= attachment_image_tag current_user, :profile_image, :fill, 100, 100, class: "pull-left profile-thumb", fallback: "noimage_person_c.png",size:'150x150'%>
   </tr>
   <tr>
     <th>ユーザー名</th>
@@ -16,16 +16,16 @@
 </table>
 
 
-   <%= render 'users/stats'%>
+   <h4><%= render 'users/stats'%></h4>
 
 
-<div class='row'>
+<div class='row　col-xs-2'>
   <%=link_to "", edit_user_path(current_user), class:"col-xs-12 btn btn-default glyphicon glyphicon-wrench edit_user_#{current_user.id}" %>
 </div>
 
-<h2>ゲーム登録</h2>
-    <div class="actions row">
-      <%= link_to "new game", new_game_path,class:"btn btn-default col-xs-12"%>
+<h4>ゲーム登録</h4>
+    <div class="actions row col-xs-4">
+      <%= link_to "登録", new_game_path,class:"btn btn-default col-xs-12"%>
   </div>
 
 

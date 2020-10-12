@@ -1,38 +1,53 @@
-    <%= render '/header'%>
-
-  	<div class='body'>
-      <div class='container'>
+<%= render '/header'%>
+<div class='body'>
+  <div class='container'>
 
       <p id="notice">
       <%=  notice %>
       </p>
 
-        <div class='row'>
-  <div class='col-xs-9'>
-		<h2><strong>ゲーム詳細</strong></h2>
-		<table class='table'>
+    <div class='row'>
+      <div class='col-xs-9'>
+		    <h2><strong>ゲーム詳細</strong></h2>
+
+		  <table class='table'>
+        <td>
+          <%= attachment_image_tag @game,:image,size:'250x250',fallback: "noimage_person_c.png"%>
+          <%= render "favorites/favorite", game: @game %>
+        </td>
+
+        </tr>
 
         <td>
-        <%= attachment_image_tag @game,:image,size:'300x300',fallback: "noimage_person_c.png"%>
-      </td>
-         </tr>
-        <td><%= @game.title%></td>
-         <td><%= render "favorites/favorite", game: @game %></td>
+          <h4><strong>【タイトル】</strong></h4>
+          <h2><strong><%= @game.title%></strong></h2>
+        </td>
+
         </tr>
-        <td><%= @game.remarks %></td>
 
-      </tr>
-     <td> <%= render "reviews/review", game: @game %></td>
-     </tr>
-      <% if @game.user_id.to_i == current_user.id %>
-        <td><%= link_to "編集", edit_game_path(@game.id) ,class:"btn-sm btn-success"%>
-          <%= link_to "削除",  "/games/#{@game.id}" ,method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn-sm btn-danger"%></td>
+        <td>
+          <h4><strong>【詳細】</strong></h4>
+          <%= @game.remarks %>
+        </td>
+
+        </tr>
+
+        <td>
+          <h4><strong>【コメント】</strong></h4>
+          <%= render "reviews/review", game: @game %>
+        </td>
+
+        </tr>
+
+        <% if @game.user_id.to_i == current_user.id %>
+          <td>
+            <h4><strong>【投稿者メニュー】</strong></h4>
+            <%= link_to "編集", edit_game_path(@game.id) ,class:"btn-sm btn-success"%>
+            <%= link_to "削除",  "/games/#{@game.id}" ,method: :delete, "data-confirm" => "本当に削除しますか？",class:"btn-sm btn-danger"%></td>
         <% end %>
-    </table>
-
-  </div>
-
-</div>
-
+      </table>
       </div>
     </div>
+
+  </div>
+</div>
