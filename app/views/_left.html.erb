@@ -1,33 +1,40 @@
 <div class='col-xs-3'>
   <h2>ユーザー詳細</h2>
-<table class='table'>
-  <tr>
-    <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "noimage_person_c.png",size:'100x100'%>
-  </tr>
-  <tr>
-    <th>ユーザー名</th>
-    <th><%= user.name %></th>
-  </tr>
-  <tr>
-    <th>ひとこと</th>
-    <th><%= user.introduction %></th>
-  </tr>
-</table>
-<%= render 'users/stats'%>
-<%= render 'users/follow_form' %>
-             <% if @isRoom == true %>
-                <div class="btn btn-default">
-                  <a href="/rooms/<%= @roomId %>">チャットへ</a>
-                </div>
-              <% else %>
-                <%= form_for @room do |f| %>
-                  <%= fields_for @entry do |e| %>
-                    <%= e.hidden_field :user_id, :value=> @user.id %>
-                  <% end %>
-                  <%= f.submit "チャットを始める",class:"btn btn-default " %>
-                <% end %>
-              <% end %>
-
+    <table class='table'>
+      <tr>
+        <%= attachment_image_tag user, :profile_image, :fill, 100, 100, class: "img-circle pull-left profile-thumb", fallback: "noimage_person_c.png",size:'100x100'%>
+      </tr>
+      <tr>
+        <th>ユーザー名</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>ひとこと</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </table>
+    <div class='center'>
+    <!-- フォローステータス-->
+   <h4><%= render 'users/stats'%></h4>
+    <!-- フォローボタン-->
+    <%= render 'users/follow_form' %>
+    <!-- チャットフォーム-->
+      <h4><strong>【チャットルーム】</strong></h4>
+    <% if @isRoom == true %>
+      <div class="btn btn-default">
+        <a href="/rooms/<%= @roomId %>">チャットへ</a>
+      </div>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, :value=> @user.id %>
+        <% end %>
+        <%= f.submit "チャットを始める",class:"btn btn-default " %>
+      <% end %>
+    <% end %>
+</div>
 <div class='row'>
 <div class='col-xs-12'>
-</div></div></div>
+</div>
+</div>
+</div>

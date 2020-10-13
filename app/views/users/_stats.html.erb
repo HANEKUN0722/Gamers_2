@@ -1,3 +1,4 @@
+<!-- フォローステータス-->
  <% @user ||= current_user %>
 <div class="stats">
   <a href="<%= following_user_path(@user) %>" class="link">
@@ -6,6 +7,7 @@
     </strong>
     フォロー中
   </a>
+  <a>   </a>
   <a href="<%= followers_user_path(@user) %>" class="link">
     <strong id="followers" class="stat">
       <%= @user.followers.count %>

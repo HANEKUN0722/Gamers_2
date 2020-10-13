@@ -13,43 +13,43 @@
           <%= render '/left' ,user: @user, users: @users, game: @game%>
         <% end %>
 
-<div class='col-xs-9'>
-
+      <div class='col-xs-9'>
+        <!-- いいねしたゲームの一覧-->
         <h2>いいねしたゲーム</h2>
-
-  <% if @favorite_list.present? %>
-  <% @favorite_list.each do |game| %>
-    <div class="col-xs-9 col-md-3">
-    <div class="thumbnail">
+        <% if @favorite_list.present? %>
+        <% @favorite_list.each do |game| %>
+          <div class="col-xs-9 col-md-3">
+          <div class="thumbnail">
             <%= attachment_image_tag game,:image,size:'100x100',fallback: "noimage_person_c.png"%>
-      <div class="caption">
-    <h4><%= link_to game.title , game_path(game),class:"link-black"%></h4>
+          <div class="caption">
+            <h4><%= link_to game.title , game_path(game),class:"link-black"%></h4>
           </div>
-    </div>
-  </div>
-
-  <% end %>
-<% end %>
-  </div>
-
-   <div class='col-xs-9'>
-    <h2>登録したゲーム</h2>
-
-
-  <% @games.each do |game| %>
-      <div class="col-xs-9 col-md-3">
-    <div class="thumbnail">
-        <%= attachment_image_tag game,:image,size:'100x100',fallback: "noimage_person_c.png"%>
- <div class="caption">
-       <h4><%= link_to game.title , game_path(game) ,class:"link-black" %></h4>
           </div>
-    </div>
-  </div>
+          </div>
+        <% end %>
+        <% else %>
+          <h3 class="text-center">いいねはまだありません</h3>
+        <% end %>
+      </div>
 
-  <% end %>
-
-
-  </div>
-</div>
+      <div class='col-xs-9'>
+        <!-- 登録したゲームの一覧-->
+        <h2>登録したゲーム</h2>
+        <% if @games.present? %>
+        <% @games.each do |game| %>
+          <div class="col-xs-9 col-md-3">
+          <div class="thumbnail">
+            <%= attachment_image_tag game,:image,size:'100x100',fallback: "noimage_person_c.png"%>
+          <div class="caption">
+            <h4><%= link_to game.title , game_path(game) ,class:"link-black" %></h4>
+          </div>
+          </div>
+          </div>
+        <% end %>
+          <% else %>
+          <h3 class="text-center">登録はまだありません</h3>
+        <% end %>
       </div>
     </div>
+  </div>
+</div>
