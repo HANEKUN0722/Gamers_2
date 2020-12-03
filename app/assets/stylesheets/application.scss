@@ -179,9 +179,12 @@
 }
 
 .navbar-left {
-  font-size: 25px;
   padding-top: 5px;
-  color:white
+}
+
+.navbar-right {
+  font-size: 16px;
+  color:white;
 }
 
 .navbar-nav > .glyphicon {
@@ -189,6 +192,9 @@
   padding:10px 15px;
   line-height: 20px;
 }
+
+//ログイン画面のデザイン
+
 
 // ユーザー編集画面のデザイン
 .edit_user > .field{
